@@ -40,3 +40,25 @@ class SignUp(FormView):
     p.address = form.cleaned_data['address']
     p.save()
     return super(SignUp, self).form_valid(form)
+
+#5.-Generar el template:
+
+{% extends 'base.html' %}
+{% block title %}SignUp{% endblock %}
+{% block content %}
+<form method="POST"
+  {%csrf_token %}
+  {{ form.as_p }}
+  <input tupe="submit" value="SignUp">
+  <input tupe="reset" value="Cancel">
+  
+{% endblock %}
+
+#6.-Crear la url:
+url(r'^signup/$', views.SignUp.as_view(), naame="SingUp_view")
+
+#7.-Realizar la migracion:
+#En la terminal: colocarse en la carpeta del proyecto:
+
+python manage.py make migration
+python manage.py migrate
