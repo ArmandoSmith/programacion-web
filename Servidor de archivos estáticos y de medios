@@ -1,0 +1,13 @@
+#Servidor de archivos de medios y estaticos:
+
+#1.-Crear directorios
+mkdir statics
+mkdir media
+
+#2.- Modificar el archivo settings.py
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
