@@ -1,11 +1,31 @@
 # Se asumira de antemano que setiene instalado el ambiente virtual y la version de python/Django que prefieran
 
 '''
-01.-Crear el proyecto:
+01.-Crear el proyecto.
 Para crear el proyecto, usamos la terminal (con el ambiente virtual activado) y nos colocamos en el directorio/carpeta 
 que deseamos que contenga nuestro proyecto:
 '''
 (ambiente_virtual)$django-admin.py startproject nombreProyecto
 
 '''
-02.-
+02.-Crear la aplicación.
+Al igual que en el paso anterior, usamos la terminal en las mismas condiciones para crear la aplciacin:
+'''
+(ambiente_virtual)$python manage.py starapp nombreApp
+
+'''
+03.-Configurar el archvio settings.py.
+Una vez creada la aplicación, es necesario configurar el archivo de nuestro proyecto para que informarle que tenemos una
+aplicacin instalada en el mismo:
+'''
+(archivo)setting.py
+
+INSTALED_APPS = (
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  'nombreApp',
+)
