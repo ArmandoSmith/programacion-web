@@ -1,1 +1,9 @@
+# Se asumira de antemano que setiene instalado el ambiente virtual y la version de python/Django que prefieran
+
+'''
+01.-Crear el proyecto:
+Para crear el proyecto, usamos la terminal (con el ambiente virtual activado) y nos colocamos en el directorio/carpeta 
+que deseamos que contenga nuestro proyecto:
+'''
+(ambiente_virtual)$django-admin.py startproject nombreProyecto
 
