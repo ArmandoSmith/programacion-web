@@ -1,0 +1,25 @@
+#en el archivo admin.py:
+
+@admin.register(Ninja)
+class Admin_ninja(admin.ModelAdmin):
+  list_display = ["name", "aldea", "clan", "genjutso"]
+  list_filter = ["aldea", "clan"]
+  search_fields = ["clan", "militar_range"]
+  list_display_links = ["name", "clan", "aldea"]
+  
+  actions = ["ninja_elite", "nija_noelite", "ninja_genin", "ninja_chunin", "ninja_jonin"]
+  
+  def ninja_elite(self, request, queryset):
+    return queryset.update(elite=True)
+    
+  def ninja_noelite(self, request, queryset):
+    return queryset.update(elite=False)
+    
+  def ninja_genin(Self, request, queryset):
+    return queryset.update(militar_range="Genin")
+  
+  def ninja_chunin(Self, request, queryset):
+    return queryset.update(militar_range="Chunin")
+    
+  def ninja_jonin(Self, request, queryset):
+    return queryset.update(militar_range="Jounin")
