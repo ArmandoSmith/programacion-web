@@ -1,0 +1,52 @@
+Detail view:
+
+1.-Modificar el archivo urls.py
+
+urls.py
+
+url(r'^detail_ninja/(?P<pk>\d+/)$', views.Detail_Ninja.as_view(), name="Detail_Ninja_View"),
+
+en el archivo view.py
+from django,viewa.generic import DetailView, UpdateView
+
+class detail_ninja(DetailView)
+  template_name = "home/detail_ninja.html"
+  model = Ninja
+  
+en el template:
+{% extends "base.html" %}
+{% block title %}DetailNinja{% endblock %}
+{% block content %}
+{{ object.name }}
+{{ object.aldea }}
+{{ object.genjutso }}
+{% endblock %}
+
+Update view:
+
+1.-Modificar el archivo urls.py
+
+urls.py
+
+url(r'^update_ninja/(?P<pk>[-\d]+)/$', views.update_ninja(), name"Update_ninja_view"),
+
+en el archivo view.py
+from django.
+
+class update_ninja(UpdateView):
+  template_name = "home/update_ninja.html"
+  model = Ninja
+  fields = "__all__"
+  succes_url = reverse_lazy("Ninja_report_view")
+
+en el template:
+{% extends "base.html" %}
+{% block title %}UpdateNinja{% endblock %}
+{% blcok content %}
+<form method="POST">
+  {% cdf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update">
+  <input type="reset" value="Cancel">
+</form>
+{% endblock %}
