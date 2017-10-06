@@ -1,0 +1,30 @@
+1.-Se crea una clase en el archivo models.py:
+
+models.py
+
+create Ninja_QuerySet(models.QuerySet):
+  def range(self, m_range):
+    return self.filter(militar_range = m_range)
+    
+2.- En el modelo que ya se habia definido se agregalo siguiente:
+
+models.py
+
+class Ninja(models.Model):
+  #Campos del modelo...
+  ninja_object = Ninja_QuerySet.as_manager()
+  
+  
+3.- Definiendo mas Custom Managers:
+
+models.py
+
+create Ninja_QuerySet(models.QuerySet):
+  def range(self, m_range):
+    return self.filter(militar_range = m_range)
+    
+  def experience(self, n_missions):
+    return self.filter(num_missions__lt = n_missions) #lt = lower then, menor que
+  
+  def mayor_experience(self, n_missions):
+    return self.filter(num_missions__gt = n_missions) #gt = , mayor que
