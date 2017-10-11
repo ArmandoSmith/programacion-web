@@ -1,19 +1,17 @@
-'''
-   Se asumira de antemano que se tiene instalado el ambiente virtual y la version de python/Django que prefieran.
-   Todo lo que esta entre <> (signos de mayor, menor que) se tiene que reemplazar.
-'''
+ Se asumira de antemano que se tiene instalado el ambiente virtual y la version de python/Django que prefieran.
+ Todo lo que esta entre <> (signos de mayor, menor que) se tiene que reemplazar (a menos de que sea de html).
 
 # ==========================================================================
 # 01.-Crear el proyecto:
 # ==========================================================================
 
-(ambiente_virtual)$django-admin.py startproject nombreProyecto
+(ambiente_virtual)$django-admin.py startproject <nombreProyecto>
 
 # ==========================================================================
 # 02.-Crear la aplicación:
 # ==========================================================================
 
-(ambiente_virtual)$python manage.py starapp nombreApp
+(ambiente_virtual)$python manage.py starapp <nombreApp>
 
 # ==========================================================================
 # 03.-Configurar el archvio settings.py:
@@ -153,3 +151,41 @@ plantillaSecundaria.html
 <--! NOTA: La diferencia entre los ejemplos es que en el ejemplo 2 puedes implementar
 "tags", como por el ejempo id="nombreId", y en el ejemplo 1 no (almenos a mi no me deja,
 SMITH)-->
+
+# ==========================================================================
+# 08.- Generar un modelo
+# ==========================================================================
+
+models.py
+
+from django.db import models
+
+class <nombreModelo>(models.Model):
+   #Aqui se definen los campos del modelo, algunos campos son:
+   <nombre_campoCaracteres> = models.CharField(max_length = <numero>)
+   # ------------------------------------------------------
+   # El "numero" define el tamaño de la cadena
+   # ------------------------------------------------------
+   <nombre_campoTexto> = models.TextField()
+   <nombre_campoNumero> = models.IntegerField()
+   <nombre_campoFlotante> = models.FloatField()
+   <nombre_campoFecha1> = models.DateTimeField(default = timezone.now)
+   # ------------------------------------------------------
+   # default=timezone.now, pone por defecto el tiempo actual.
+   # ------------------------------------------------------
+   <nombre_campoFecha2> = models.DateTimeField(blank = True, null = True)
+   # ------------------------------------------------------
+   # blank=True, null=True, se utiliza para modificar de manera.
+   # ------------------------------------------------------
+   <nombre_campoBoleano> = models.BooleanField()
+   <opcionesDeElección> = (
+      (<opcion1> = <'opcion1>'),
+      (<opcion2> = <'opcion2>'),
+      (<opcion3> = <'opcion3>'),
+      (<opcionX> = <'opcionX>'),
+   )
+   <nombre_campoDeElección> = modesl.CharField(choices = <opcionesDeElección>)
+   )
+   # ------------------------------------------------------
+   # choices = <opcionesDeElección>, define que el campo solo podra utilziar esas opciones.
+   # ------------------------------------------------------
