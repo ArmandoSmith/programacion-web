@@ -179,10 +179,10 @@ class <nombreModelo>(models.Model):
    # ------------------------------------------------------
    <nombre_campoBoleano> = models.BooleanField()
    <opcionesDeElección> = (
-      (<opcion1> = <'opcion1>'),
-      (<opcion2> = <'opcion2>'),
-      (<opcion3> = <'opcion3>'),
-      (<opcionX> = <'opcionX>'),
+      (<opcion1> = '<opcion1>'),
+      (<opcion2> = '<opcion2>'),
+      (<opcion3> = '<opcion3>'),
+      (<opcionX> = '<opcionX>'),
    )
    <nombre_campoDeElección> = modesl.CharField(choices = <opcionesDeElección>)
    )
