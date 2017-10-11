@@ -91,3 +91,65 @@ urlpatterns = [
     url(r'^$', views.<urlBase>), # Esta esla url que se abrira por defecto en el servidor:
     url(r'^<Url>/$', views.<nombreVista>, name="<nombreUrl>"), # Esta es una url normal
 ]
+
+# ==========================================================================
+# 07.- Generar una plantilla base y heredar a las demas plantillas:
+# ==========================================================================
+'''Solo se añadira la sección de código que se necesita, por parte de python, 
+para heredar/extender una plantilla a otra:'''
+
+base.html
+
+<--Se utiliza la estructura general para crear un archivo html solo que se agregan las
+siguientes secciones de código para poderse modificar en los archivos a los que se va a
+heredar/extender la plantilla base: -->
+
+<--! Estructura general: -->
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  </body>
+</html>
+
+<--! Estructura general con el código para heredar/extender: -->
+<--! Ejemplo 1: -->
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+  {% block body %}{% endblock %}
+  </body>
+</html>
+
+<--! Ejemplo 2: -->
+<html>
+  <head>
+    {% block title %}{% endblock %}
+  </head>
+  {% block body %}{% endblock %}
+</html>
+
+plantillaSecundaria.html
+
+<--! Ejemplo 1: -->
+{% block title %}Titulo generico{% endblock %}
+{% block body %}
+   <-- Codigo generico para plantillas html -->
+{% endblock %}
+
+<--! Ejemplo 2: -->
+{% block title %}
+<title>Titulo generico</title>
+{% endblock %}
+{% block body %}
+   <body>
+      <-- Codigo generico para plantillas html -->
+    </body>
+{% endblock %}
+
+<--! NOTA: La diferencia entre los ejemplos es que en el ejemplo 2 puedes implementar
+"tags", como por el ejempo id="nombreId", y en el ejemplo 1 no (almenos a mi no me deja,
+SMITH)-->
