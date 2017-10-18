@@ -1,0 +1,6 @@
+1.- Hacer la instalación de alluth:
+
+terminal:
+
+pip install django-alluth
+
