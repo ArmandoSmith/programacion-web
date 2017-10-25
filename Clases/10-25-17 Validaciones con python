@@ -1,0 +1,8 @@
+form.py
+
+def clean_name(self):
+  name = cleaned_data["name"]
+  if name == name.upper():
+    self.add_errors("name", "No escribir solo en mayusculas")
+  else
+    return self.cleaned_data["name"]
