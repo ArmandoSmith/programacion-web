@@ -26,7 +26,7 @@ ajax.html
       url:"/ninjas-ajax/",
       type:"get",
       succes:fuction(data){
-        console.log(data);
+        console.log(data); //Imprime en la consola del navegador.
       }
     });
   }
