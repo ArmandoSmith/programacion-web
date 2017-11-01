@@ -1,0 +1,32 @@
+1.- Hacer la url:
+
+urls.py
+
+url(r'^ninjas-ajax/$', viewa.Ajaxview.as_view(), name = "Ajaxview_view")
+
+2.- Hacer la vista:
+
+views.py
+
+class Ajaxview(ListView):
+  model = Ninja
+  template_name = "home/ajax.html"
+  
+3.- Poner el script en el template:
+
+ajax.html
+
+<script src = "{% static 'js/jequery.js' %}"></script>
+<script>
+  $('select').on('Change', Change);
+  function Change(){
+    var id = (this).val();
+    $ajax({
+      data:{'id':id},
+      url:"/ninjas-ajax/",
+      type:"get",
+      succes:fuction(data){
+        console.log(data);
+      }
+    });
+  }
