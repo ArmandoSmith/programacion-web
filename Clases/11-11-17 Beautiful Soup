@@ -1,0 +1,21 @@
+1.-Instalar beautiful soup y requests:
+
+pip install beautiful soup
+pip install requests
+
+2.-Importar beautiful soup y requests:
+import requests
+from bs4 import BeautifulSoup
+
+3.-Poner la url que vamos a escapiar?:
+url = "<url>"
+ejemplo:
+url = "https://jarroba.com/"
+
+4.-Poner el request:
+req = requests.get(url)
+
+req.status //Muestra el status del pedido
+req.text //Muestra todo el texto
+
+NOTA: Beautiful Soup solo busca datos que estana a la vista, por lo que puede buscar en cualquier pagina.
