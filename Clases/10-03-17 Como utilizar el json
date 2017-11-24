@@ -15,8 +15,8 @@ base.html
       success:function(response){
         var i = (response.length -1) -2;
         for(i;i<=(response.length-1){
-          $('NewNnjas').append("<li>" + response[i].fields.name + "   " + response[i].fields.militar_range + "</li>);
-        }
+          $('NewNnjas').append("<li>" + response[i].fields.name + "   " + response[i].fields.militar_range + "</li>");
+        })
       }
     });
   });
